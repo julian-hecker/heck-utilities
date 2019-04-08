@@ -13,18 +13,20 @@
 
 
 // Display
-@each $size in $breakpoints {
-  .u-display-block#{$size}, .u-dis-blc#{$size} {
-    display: block;
-  }
-  .u-display-inline-block#{$size}, .u-dis-ib#{$size} {
-    display: inline-block;
-  }
-  .u-display-inline#{$size}, .u-dis-inl#{$size} {
-    display: inline;
-  }
-  .u-display-none#{$size}, .u-dis-none#{$size} {
-    display: none;
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @media (min-width: $bkpt-width) {
+    .u-display-block#{$bkpt-label}, .u-dis-blo#{$bkpt-label} {
+      display: block;
+    }
+    .u-display-inline-block#{$bkpt-label}, .u-dis-ib#{$bkpt-label} {
+      display: inline-block;
+    }
+    .u-display-inline#{$bkpt-label}, .u-dis-inl#{$bkpt-label} {
+      display: inline;
+    }
+    .u-display-none#{$bkpt-label}, .u-dis-none#{$bkpt-label} {
+      display: none;
+    }
   }
 }
 
@@ -34,23 +36,122 @@
 
 
 // Position
-@each $size in $breakpoints {
-  .u-position-static#{$size}, .u-pos-sta#{$size} {
-    position: static;
-  }
-  .u-position-relative#{$size}, .u-pos-rel#{$size} {
-    position: relative;
-  }
-  .u-position-absolute#{$size}, .u-pos-abs#{$size} {
-    position: absolute;
-  }
-  .u-position-fixed#{$size}, .u-pos-fix#{$size} {
-    position: fixed;
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @media (min-width: $bkpt-width) {
+    .u-position-static#{$bkpt-label}, .u-pos-sta#{$bkpt-label} {
+      position: static;
+    }
+    .u-position-relative#{$bkpt-label}, .u-pos-rel#{$bkpt-label} {
+      position: relative;
+    }
+    .u-position-absolute#{$bkpt-label}, .u-pos-abs#{$bkpt-label} {
+      position: absolute;
+    }
+    .u-position-fixed#{$bkpt-label}, .u-pos-fix#{$bkpt-label} {
+      position: fixed;
+    }
   }
 }
 
 
 // Spacing
+// Paddings
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+    @media (min-width: $bkpt-width) {
+      .p#{$spacing-label}#{$bkpt-label} {
+        padding: $spacing-size;
+      }
+      .py#{$spacing-label}#{$bkpt-label} {
+        padding-top: $spacing-size;
+        padding-bottom: $spacing-size;
+      }
+      .px#{$spacing-label}#{$bkpt-label} {
+        padding-right: $spacing-size;
+        padding-left: $spacing-size;
+      }
+      .pt#{$spacing-label}#{$bkpt-label} {
+        padding-top: $spacing-size;
+      }
+      .pr#{$spacing-label}#{$bkpt-label} {
+        padding-right: $spacing-size;
+      }
+      .pb#{$spacing-label}#{$bkpt-label} {
+        padding-bottom: $spacing-size;
+      }
+      .pl#{$spacing-label}#{$bkpt-label} {
+        padding-left: $spacing-size;
+      }
+    }
+  }
+}
+
+// Negative Margins
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+    $spacing-size: $spacing-size * -1;
+    @media (min-width: $bkpt-width) {
+      @if $spacing-size != 0 {
+        .mn#{$spacing-label}#{$bkpt-label} {
+          margin: $spacing-size;
+        }
+        .myn#{$spacing-label}#{$bkpt-label} {
+          margin-top: $spacing-size;
+          margin-bottom: $spacing-size;
+        }
+        .mxn#{$spacing-label}#{$bkpt-label} {
+          margin-right: $spacing-size;
+          margin-left: $spacing-size;
+        }
+        .mtn#{$spacing-label}#{$bkpt-label} {
+          margin-top: $spacing-size;
+        }
+        .mrn#{$spacing-label}#{$bkpt-label} {
+          margin-right: $spacing-size;
+        }
+        .mbn#{$spacing-label}#{$bkpt-label} {
+          margin-bottom: $spacing-size;
+        }
+        .mln#{$spacing-label}#{$bkpt-label} {
+          margin-left: $spacing-size;
+        }
+      }
+    }
+  }
+}
+
+
+// Positive Margins
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+    @media (min-width: $bkpt-width) {
+      .m#{$spacing-label}#{$bkpt-label} {
+        margin: $spacing-size;
+      }
+      .my#{$spacing-label}#{$bkpt-label} {
+        margin-top: $spacing-size;
+        margin-bottom: $spacing-size;
+      }
+      .mx#{$spacing-label}#{$bkpt-label} {
+        margin-right: $spacing-size;
+        margin-left: $spacing-size;
+      }
+      .mt#{$spacing-label}#{$bkpt-label} {
+        margin-top: $spacing-size;
+      }
+      .mr#{$spacing-label}#{$bkpt-label} {
+        margin-right: $spacing-size;
+      }
+      .mb#{$spacing-label}#{$bkpt-label} {
+        margin-bottom: $spacing-size;
+      }
+      .ml#{$spacing-label}#{$bkpt-label} {
+        margin-left: $spacing-size;
+      }
+    }
+  }
+}
+
 
 
 // Dimension
