@@ -32,3 +32,21 @@
 
 // Grid
 
+
+// Position
+@each $size in $breakpoints {
+  .u-position-static#{$size} {
+    position: static;
+  }
+  .u-position-relative#{$size} {
+    position: relative;
+  }
+  .u-position-absolute#{$size} {
+    position: absolute;
+  }
+  .u-position-fixed#{$size} {
+    position: fixed;
+  }
+}
+
+
