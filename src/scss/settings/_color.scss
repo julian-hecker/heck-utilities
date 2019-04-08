@@ -1,0 +1,19 @@
+// Colors
+// Main Colors
+$color-primary:               hsla(240, 100%, 50%, 1.0)       !default;
+$color-secondary:             hsla(270, 100%, 50%, 1.0)       !default;
+$color-accent1:               hsla(000, 100%, 50%, 1.0)       !default;
+$color-accent2:               hsla(030, 100%, 50%, 1.0)       !default;
+$color-accent3:               hsla(060, 100%, 50%, 1.0)       !default;
+$color-accent4:               hsla(000, 100%, 50%, 1.0)       !default;
+$color-gray:                  rgba(128, 128, 128, 1.0)        !default;
+
+$colors: (
+  "color-primary-500":        $color-primary,
+  "color-secondary-500":      $color-secondary,
+  "color-accent1-500":        $color-accent1,
+  "color-accent2-500":        $color-accent2,
+  "color-accent3-500":        $color-accent3,
+  "color-accent4-500":        $color-accent4,
+  "color-gray-500":           $color-gray
+);
