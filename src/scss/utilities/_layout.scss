@@ -14,16 +14,16 @@
 
 // Display
 @each $size in $breakpoints {
-  .u-display-block#{$size} {
+  .u-display-block#{$size}, .u-dis-blc#{$size} {
     display: block;
   }
-  .u-display-inline-block#{$size} {
+  .u-display-inline-block#{$size}, .u-dis-ib#{$size} {
     display: inline-block;
   }
-  .u-display-inline#{$size} {
+  .u-display-inline#{$size}, .u-dis-inl#{$size} {
     display: inline;
   }
-  .u-display-none#{$size} {
+  .u-display-none#{$size}, .u-dis-none#{$size} {
     display: none;
   }
 }
@@ -35,18 +35,22 @@
 
 // Position
 @each $size in $breakpoints {
-  .u-position-static#{$size} {
+  .u-position-static#{$size}, .u-pos-sta#{$size} {
     position: static;
   }
-  .u-position-relative#{$size} {
+  .u-position-relative#{$size}, .u-pos-rel#{$size} {
     position: relative;
   }
-  .u-position-absolute#{$size} {
+  .u-position-absolute#{$size}, .u-pos-abs#{$size} {
     position: absolute;
   }
-  .u-position-fixed#{$size} {
+  .u-position-fixed#{$size}, .u-pos-fix#{$size} {
     position: fixed;
   }
 }
 
 
+// Spacing
+
+
+// Dimension
