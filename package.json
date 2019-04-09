@@ -1,0 +1,27 @@
+{
+  "name": "heck-utilities",
+  "version": "1.0.0",
+  "description": "Responsive CSS Utility library for laying out pages fast!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julian-hecker/heck-utilities.git"
+  },
+  "author": "Julian Hecker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julian-hecker/heck-utilities/issues"
+  },
+  "homepage": "https://github.com/julian-hecker/heck-utilities#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "del": "^4.1.0",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0"
+  }
+}
