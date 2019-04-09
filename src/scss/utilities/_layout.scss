@@ -1,12 +1,12 @@
 // -Layout-
-// Display
+// Display  //
 //   Flex
 //   Grid
-// Position
-// Float
-// Spacing
-//   Margin
-//   Padding
+// Position //
+// Float    //
+// Spacing  //
+//   Margin //
+//   Padding//
 // Dimension
 //   width
 //   height
@@ -15,24 +15,151 @@
 // Display
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
-    .u-display-block#{$bkpt-label}, .u-dis-blo#{$bkpt-label} {
+    .u-display-block#{$bkpt-label}, .u-dsp-blc#{$bkpt-label} {
       display: block;
     }
-    .u-display-inline-block#{$bkpt-label}, .u-dis-ib#{$bkpt-label} {
+    .u-display-inline-block#{$bkpt-label}, .u-dsp-ilb#{$bkpt-label} {
       display: inline-block;
     }
-    .u-display-inline#{$bkpt-label}, .u-dis-inl#{$bkpt-label} {
+    .u-display-inline#{$bkpt-label}, .u-dsp-inl#{$bkpt-label} {
       display: inline;
-    }
-    .u-display-none#{$bkpt-label}, .u-dis-none#{$bkpt-label} {
-      display: none;
     }
   }
 }
 
+//    .u-display-none#{$bkpt-label}, .u-dsp-none#{$bkpt-label} {
+//      display: none;
+//      // This is quite buggy! Use with caution!
+//      // Perhaps give it limited range? disappear only at a specific point?
+//    }
+
+
+
 // Flex
+// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
-
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @media (min-width: $bkpt-width) {
+    .u-flex-direction-row#{$bkpt-label}, .u-flex-row#{$bkpt-label} {
+      display: flex;
+      flex-direction: row;
+      &.u-reverse {
+        flex-direction: row-reverse;
+      }
+    }
+    .u-flex-direction-column#{$bkpt-label}, .u-flex-col#{$bkpt-label} {
+      display: flex;
+      flex-direction: column;
+      &.u-reverse {
+        flex-direction: column-reverse;
+      }
+    }
+    .u-flex-wrap#{$bkpt-label} {
+      flex-wrap: wrap;
+      &.u-reverse {
+        flex-wrap: wrap-reverse;
+      }
+    }
+    .u-flex-nowrap#{$bkpt-label} {
+      flex-wrap: nowrap;
+    }
+    @for $i from -5 through 5 {
+      @if $i < 0 {
+        .u-order-n#{-1 * $i}#{$bkpt-label} {
+          order: $i;
+        }
+      }
+      @else {
+        .u-order#{$i}#{$bkpt-label} {
+          order: $i;
+        }
+      }
+    }
+    .u-order-first#{$bkpt-label}, .u-ord-frst#{$bkpt-label} {
+      order: -999;
+    }
+    .u-order-last#{$bkpt-label}, .u-ord-last#{$bkpt-label} {
+      order: 999;
+    }
+    
+    // Refactor next part using lists, loops, and conditionals
+    
+    .u-justify-start#{$bkpt-label}, .u-jstf-sta#{$bkpt-label} {
+      justify-content: flex-start;
+    }
+    .u-justify-end#{$bkpt-label}, .u-jstf-end#{$bkpt-label} {
+      justify-content: flex-end;
+    }
+    .u-justify-center#{$bkpt-label}, .u-jstf-cnt#{$bkpt-label} {
+      justify-content: center;
+    }
+    .u-justify-between#{$bkpt-label}, .u-jst-btw#{$bkpt-label} {
+      justify-content: space-between;
+    }
+    .u-justify-around#{$bkpt-label}, .u-jstf-arn#{$bkpt-label} {
+      justify-content: space-around;
+    }
+    .u-justify-evenly#{$bkpt-label}, .u-jstf-evn#{$bkpt-label} {
+      justify-content: space-around;
+      justify-content: space-evenly;
+    }
+    
+    .u-align-content-stretch#{$bkpt-label}, .u-cont-str#{$bkpt-label} {
+      align-content: stretch;
+    }
+    .u-align-content-start#{$bkpt-label}, .u-cont-sta#{$bkpt-label} {
+      align-content: flex-start;
+    }
+    .u-align-content-end#{$bkpt-label}, .u-cont-end#{$bkpt-label} {
+      align-content: flex-end;
+    }
+    .u-align-content-center#{$bkpt-label}, .u-cont-cnt#{$bkpt-label} {
+      align-content: center;
+    }
+    .u-align-content-between#{$bkpt-label}, .u-cont-btw#{$bkpt-label} {
+      align-content: space-between;
+    }
+    .u-align-content-around#{$bkpt-label}, .u-cont-arn#{$bkpt-label} {
+      align-content: space-around;
+    }
+    .u-align-content-evenly#{$bkpt-label}, .u-cont-evn#{$bkpt-label} {
+      align-content: space-around;
+      align-content: space-evenly;
+    }
+    
+    .u-align-items-stretch#{$bkpt-label}, .u-itms-str#{$bkpt-label} {
+      align-items: stretch;
+    }
+    .u-align-items-start#{$bkpt-label}, .u-itms-sta#{$bkpt-label} {
+      align-items: flex-start;
+    }
+    .u-align-items-end#{$bkpt-label}, .u-itms-end#{$bkpt-label} {
+      align-items: flex-end;
+    }
+    .u-align-items-center#{$bkpt-label}, .u-itms-cnt#{$bkpt-label} {
+      align-items: center;
+    }
+    .u-align-items-baseline#{$bkpt-label}, .u-itms-bsl#{$bkpt-label} {
+      align-items: baseline;
+    }
+    
+    .u-align-self-stretch#{$bkpt-label}, .u-self-str#{$bkpt-label} {
+      align-self: stretch;
+    }
+    .u-align-self-start#{$bkpt-label}, .u-self-sta#{$bkpt-label} {
+      align-self: flex-start;
+    }
+    .u-align-self-end#{$bkpt-label}, .u-self-end#{$bkpt-label} {
+      align-self: flex-end;
+    }
+    .u-align-self-center#{$bkpt-label}, .u-self-cnt#{$bkpt-label} {
+      align-self: center;
+    }
+    .u-align-self-baseline#{$bkpt-label}, .u-self-bsl#{$bkpt-label} {
+      align-self: baseline;
+    }
+  }
+}
 
 
 // Grid
@@ -56,58 +183,36 @@
   }
 }
 
+
 // Float
-@each $bkpt-label in $breakpoints {
-  .u-float-right#{$bkpt-label}, .u-flo-rgt#{$bkpt-label} {
-    float: right;
-  }
-  .u-float-left#{$bkpt-label}, .u-flo-lft#{$bkpt-label} {
-    float: left;
-  }
-  .u-clear-both#{$bkpt-label}, .u-clr-bth#{$bkpt-label} {
-    clear: both;
-  }
-  .u-clear-right#{$bkpt-label}, .u-clr-rgt#{$bkpt-label} {
-    clear: right;
-  }
-  .u-clear-left#{bkpt-label}, .u-clr-lft#{$bkpt-label} {
-    clear: left;
-  }
-}
-
-
-// Spacing
-// Padding
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in mapReverse($spacings) {
-    @media (min-width: $bkpt-width) {
-      .u-p#{$spacing-label}#{$bkpt-label} {
-        padding: $spacing-size;
-      }
-      .u-py#{$spacing-label}#{$bkpt-label} {
-        padding-top: $spacing-size;
-        padding-bottom: $spacing-size;
-      }
-      .u-px#{$spacing-label}#{$bkpt-label} {
-        padding-right: $spacing-size;
-        padding-left: $spacing-size;
-      }
-      .u-pt#{$spacing-label}#{$bkpt-label} {
-        padding-top: $spacing-size;
-      }
-      .u-pr#{$spacing-label}#{$bkpt-label} {
-        padding-right: $spacing-size;
-      }
-      .u-pb#{$spacing-label}#{$bkpt-label} {
-        padding-bottom: $spacing-size;
-      }
-      .u-pl#{$spacing-label}#{$bkpt-label} {
-        padding-left: $spacing-size;
-      }
+  @media (min-width: $bkpt-width) {
+    .u-float-right#{$bkpt-label}, .u-flo-rgt#{$bkpt-label} {
+      float: right;
+    }
+    .u-float-left#{$bkpt-label}, .u-flo-lft#{$bkpt-label} {
+      float: left;
+    }
+    .u-clear-both#{$bkpt-label}, .u-clr-bth#{$bkpt-label} {
+      clear: both;
+    }
+    .u-clear-right#{$bkpt-label}, .u-clr-rgt#{$bkpt-label} {
+      clear: right;
+    }
+    .u-clear-left#{bkpt-label}, .u-clr-lft#{$bkpt-label} {
+      clear: left;
     }
   }
 }
 
+.u-clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+
+// =-= Spacing =-=
 // Negative Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @each $spacing-label, $spacing-size in mapReverse($spacings) {
@@ -142,7 +247,6 @@
   }
 }
 
-
 // Positive Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @each $spacing-label, $spacing-size in mapReverse($spacings) {
@@ -174,6 +278,36 @@
   }
 }
 
+// Padding
+@each $bkpt-label, $bkpt-width in $breakpoints {
+  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+    @media (min-width: $bkpt-width) {
+      .u-p#{$spacing-label}#{$bkpt-label} {
+        padding: $spacing-size;
+      }
+      .u-py#{$spacing-label}#{$bkpt-label} {
+        padding-top: $spacing-size;
+        padding-bottom: $spacing-size;
+      }
+      .u-px#{$spacing-label}#{$bkpt-label} {
+        padding-right: $spacing-size;
+        padding-left: $spacing-size;
+      }
+      .u-pt#{$spacing-label}#{$bkpt-label} {
+        padding-top: $spacing-size;
+      }
+      .u-pr#{$spacing-label}#{$bkpt-label} {
+        padding-right: $spacing-size;
+      }
+      .u-pb#{$spacing-label}#{$bkpt-label} {
+        padding-bottom: $spacing-size;
+      }
+      .u-pl#{$spacing-label}#{$bkpt-label} {
+        padding-left: $spacing-size;
+      }
+    }
+  }
+}
 
 
 // Dimension
