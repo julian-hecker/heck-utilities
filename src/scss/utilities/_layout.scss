@@ -13,6 +13,10 @@
 
 
 // =-= Display =-=
+[hidden] {
+  display: none !important;
+}
+
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-display-block#{$bkpt-label}, .u-dsp-blc#{$bkpt-label} {
@@ -27,17 +31,28 @@
   }
 }
 
-//    .u-display-none#{$bkpt-label}, .u-dsp-none#{$bkpt-label} {
-//      display: none;
-//      // This is quite buggy! Use with caution!
-//      // Perhaps give it limited range? disappear only at a specific point?
-//    }
+// $list: foo, bar, baz;
+// @for $i from 1 through length($list) {
+//     $item: nth($list, $i);
+//     .#{$item} {
+//         @if $i % 2 == 0 {
+//             background: red;
+//         } @else {
+//             background: blue;
+//         }
+//     }
+// }
+
+// .u-display-none#{$bkpt-label}, .u-dsp-none#{$bkpt-label} {
+//   display: none;
+//   // This is quite buggy! Use with caution!
+//   // Perhaps give it limited range? disappear only at a specific point?
+// }
 
 
 
 // =-= Flex =-=
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-flex-direction-row#{$bkpt-label}, .u-flex-row#{$bkpt-label} {
@@ -291,7 +306,7 @@
 // =-= Padding =-=
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
-    @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
+    @each $spacing-label, $spacing-size in $spacings {
       .u-p#{$spacing-label}#{$bkpt-label} {
         padding: $spacing-size;
       }
