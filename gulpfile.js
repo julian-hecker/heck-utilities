@@ -1,6 +1,6 @@
 // Imports
 const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+// const cssnano = require('cssnano');
 const del = require('del');
 const gulp = require('gulp');
 const gulpPostcss = require('gulp-postcss');
@@ -25,8 +25,8 @@ function clean() {
 function scss() {
   return gulp.src(paths.scss.src)
     .pipe(gulpSass())
-    .pipe(gulpPostcss( [autoprefixer( {remove: false} ), cssnano()] ))
-    .pipe(gulp.dest(paths.scs.dest));
+    .pipe(gulpPostcss( [autoprefixer( {remove: false} )/*, cssnano()*/] ))
+    .pipe(gulp.dest(paths.scss.dest));
 }
 
 function watch() {
