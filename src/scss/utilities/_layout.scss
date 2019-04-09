@@ -199,7 +199,7 @@
     .u-clear-right#{$bkpt-label}, .u-clr-rgt#{$bkpt-label} {
       clear: right;
     }
-    .u-clear-left#{bkpt-label}, .u-clr-lft#{$bkpt-label} {
+    .u-clear-left#{$bkpt-label}, .u-clr-lft#{$bkpt-label} {
       clear: left;
     }
   }
@@ -213,9 +213,11 @@
 
 
 // =-= Spacing =-=
+
+// Redo section to order correctly; also reorder $spacings
 // Negative Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+  @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
     $spacing-size: $spacing-size * -1;
     @media (min-width: $bkpt-width) {
       @if $spacing-size != 0 {
@@ -249,7 +251,7 @@
 
 // Positive Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+  @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
     @media (min-width: $bkpt-width) {
       .u-m#{$spacing-label}#{$bkpt-label} {
         margin: $spacing-size;
@@ -280,7 +282,7 @@
 
 // Padding
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in mapReverse($spacings) {
+  @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
     @media (min-width: $bkpt-width) {
       .u-p#{$spacing-label}#{$bkpt-label} {
         padding: $spacing-size;

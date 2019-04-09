@@ -1,19 +1,19 @@
-'use strict';
+// 'use strict';
  
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+// var gulp = require('gulp');
+// var sass = require('gulp-sass');
 
-sass.compiler = require('node-sass');
+// sass.compiler = require('node-sass');
  
-gulp.task('sass', function () {
-  return gulp.src('./sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
-});
+// gulp.task('sass', function () {
+//   return gulp.src('./sass/**/*.scss')
+//     .pipe(sass().on('error', sass.logError))
+//     .pipe(gulp.dest('./css'));
+// });
  
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
-});
+// gulp.task('sass:watch', function () {
+//   gulp.watch('./sass/**/*.scss', ['sass']);
+// });
 
 
 
@@ -21,7 +21,7 @@ gulp.task('sass:watch', function () {
 
 
 const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+// const cssnano = require('cssnano');
 const del = require('del');
 const gulp = require('gulp');
 const gulpPostcss = require('gulp-postcss');
@@ -47,7 +47,7 @@ function clean() {
 
 function css() {
   return gulp.src(paths.css.src)
-    .pipe(gulpPostcss( [autoprefixer( {remove: false} ), cssnano()] ))
+    .pipe(gulpPostcss( [autoprefixer( {remove: false} )/*, cssnano()*/] ))
     .pipe(gulp.dest(paths.css.dest));
 }
 
@@ -55,7 +55,7 @@ function scss() {
   return gulp.src(paths.scss.src)
     .pipe(gulpSass())
     .pipe(gulp.dest(paths.scss.dest))
-    .pipe(browserSync.stream());
+    // .pipe(browserSync.stream());
 }
 
 
