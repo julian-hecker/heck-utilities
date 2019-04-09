@@ -13,10 +13,6 @@
 
 
 // =-= Display =-=
-[hidden] {
-  display: none !important;
-}
-
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-display-block#{$bkpt-label}, .u-dsp-blc#{$bkpt-label} {
