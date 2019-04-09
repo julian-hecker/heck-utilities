@@ -1,6 +1,6 @@
 // -Layout-
 // Display  //
-//   Flex
+//   Flex   //
 //   Grid
 // Position //
 // Float    //
@@ -12,7 +12,7 @@
 //   height
 
 
-// Display
+// =-= Display =-=
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-display-block#{$bkpt-label}, .u-dsp-blc#{$bkpt-label} {
@@ -35,7 +35,7 @@
 
 
 
-// Flex
+// =-= Flex =-=
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 @each $bkpt-label, $bkpt-width in $breakpoints {
@@ -63,7 +63,7 @@
     .u-flex-nowrap#{$bkpt-label} {
       flex-wrap: nowrap;
     }
-    @for $i from -5 through 5 {
+    @for $i from -5 through 5 { //opinionable
       @if $i < 0 {
         .u-order-n#{-1 * $i}#{$bkpt-label} {
           order: $i;
@@ -82,7 +82,7 @@
       order: 999;
     }
     
-    // Refactor next part using lists, loops, and conditionals
+    // Refactor next parts using lists, loops, and conditionals
     
     .u-justify-start#{$bkpt-label}, .u-jstf-sta#{$bkpt-label} {
       justify-content: flex-start;
@@ -162,10 +162,10 @@
 }
 
 
-// Grid
+// =-= Grid =-=
 
 
-// Position
+// =-= Position =-=
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-position-static#{$bkpt-label}, .u-pos-sta#{$bkpt-label} {
@@ -184,7 +184,7 @@
 }
 
 
-// Float
+// =-= Float =-=
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-float-right#{$bkpt-label}, .u-flo-rgt#{$bkpt-label} {
@@ -213,13 +213,12 @@
 
 
 // =-= Spacing =-=
-
-// Redo section to order correctly; also reorder $spacings
+// Refactor for shorter compiled file
 // Negative Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
-    $spacing-size: $spacing-size * -1;
-    @media (min-width: $bkpt-width) {
+  @media (min-width: $bkpt-width) {
+    @each $spacing-label, $spacing-size in $spacings {
+      $spacing-size: $spacing-size * -1;
       @if $spacing-size != 0 {
         .u-mn#{$spacing-label}#{$bkpt-label} {
           margin: $spacing-size;
@@ -249,10 +248,10 @@
   }
 }
 
-// Positive Margin
+// =-= Positive Margin =-=
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
-    @media (min-width: $bkpt-width) {
+  @media (min-width: $bkpt-width) {
+    @each $spacing-label, $spacing-size in $spacings {
       .u-m#{$spacing-label}#{$bkpt-label} {
         margin: $spacing-size;
       }
@@ -277,13 +276,22 @@
         margin-left: $spacing-size;
       }
     }
+    .u-ma#{$bkpt-label} {
+      margin: auto;
+    }
+    .u-mra#{$bkpt-label} {
+      margin-right: auto;
+    }
+    .u-mla#{$bkpt-label} {
+      margin-left: auto;
+    }
   }
 }
 
-// Padding
+// =-= Padding =-=
 @each $bkpt-label, $bkpt-width in $breakpoints {
-  @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
-    @media (min-width: $bkpt-width) {
+  @media (min-width: $bkpt-width) {
+    @each $spacing-label, $spacing-size in $spacings { // mapReverse($spacings) {
       .u-p#{$spacing-label}#{$bkpt-label} {
         padding: $spacing-size;
       }
@@ -312,4 +320,6 @@
 }
 
 
-// Dimension
+// =-= Dimension =-=
+  // Width, Min-Width, Max-Width; Height, Min-Height, Max-Height
+    // em, px, vw, vh, %

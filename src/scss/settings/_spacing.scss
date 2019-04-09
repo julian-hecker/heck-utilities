@@ -1,27 +1,28 @@
 //Spacing Sizes
 $spacing-base:                1rem;
 
-$spacing-0:                   0.00 * $spacing-base            !default;
-$spacing-1:                   0.12 * $spacing-base            !default;
-$spacing-2:                   0.25 * $spacing-base            !default;
-$spacing-3:                   0.50 * $spacing-base            !default;
-$spacing-4:                   1.00 * $spacing-base            !default;
-$spacing-5:                   1.00 * $spacing-base            !default;
-$spacing-6:                   2.00 * $spacing-base            !default;
-$spacing-7:                   4.00 * $spacing-base            !default;
-$spacing-8:                   8.00 * $spacing-base            !default;
 $spacing-9:                   16.0 * $spacing-base            !default;
+$spacing-8:                   8.00 * $spacing-base            !default;
+$spacing-7:                   4.00 * $spacing-base            !default;
+$spacing-6:                   2.00 * $spacing-base            !default;
+$spacing-5:                   1.00 * $spacing-base            !default;
+$spacing-4:                   1.00 * $spacing-base            !default;
+$spacing-3:                   0.50 * $spacing-base            !default;
+$spacing-2:                   0.25 * $spacing-base            !default;
+$spacing-1:                   0.12 * $spacing-base            !default;
+$spacing-0:                   0.00 * $spacing-base            !default;
+
 
 $spacings: (
-  "0": $spacing-0,
-  "1": $spacing-1,
-  "2": $spacing-2,
-  "3": $spacing-3,
-  "4": $spacing-4,
-  "5": $spacing-5,
-  "6": $spacing-6,
-  "7": $spacing-7,
-  "8": $spacing-8,
   "9": $spacing-9,
+  "8": $spacing-8,
+  "7": $spacing-7,
+  "6": $spacing-6,
+  "5": $spacing-5,
+  "4": $spacing-4,
+  "3": $spacing-3,
+  "2": $spacing-2,
+  "1": $spacing-1,
+  "0": $spacing-0,
 );
 
