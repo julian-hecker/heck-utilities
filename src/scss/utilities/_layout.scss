@@ -12,7 +12,7 @@
 //   height
 
 
-// =-= Display =-=
+/* =-= Display =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-display-block#{$bkpt-label}, .u-dsp-blc#{$bkpt-label} {
@@ -27,27 +27,30 @@
   }
 }
 
-// $list: foo, bar, baz;
-// @for $i from 1 through length($list) {
-//     $item: nth($list, $i);
-//     .#{$item} {
-//         @if $i % 2 == 0 {
-//             background: red;
-//         } @else {
-//             background: blue;
-//         }
-//     }
-// }
+@for $i from 1 to length($breakpoints) {
+  $bkpt-label: map_get($breakpoints, $i);
+  $next-bkpt-label: map_get($breakpoints, $i + 1);
+  @if $i == 1 {
+    @media (max-width: nth($breakpoints, $i + 1)) {
+      .u-display-none#{ map_get($breakpoints, $i) },
+      .u-dsp-none#{ map_get($breakpoints, $i) },
+      .u-hide#{ map_get($breakpoints, $i) } {
+        display: none;
+      }
+    }
+  }
+//  @elseif $i 
+}
 
 // .u-display-none#{$bkpt-label}, .u-dsp-none#{$bkpt-label} {
-//   display: none;
+//   display: none !important;
 //   // This is quite buggy! Use with caution!
 //   // Perhaps give it limited range? disappear only at a specific point?
 // }
 
 
 
-// =-= Flex =-=
+/* =-= Flex =-= */
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
@@ -173,10 +176,10 @@
 }
 
 
-// =-= Grid =-=
+/* =-= Grid =-= */
 
 
-// =-= Position =-=
+/* =-= Position =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-position-static#{$bkpt-label}, .u-pos-sta#{$bkpt-label} {
@@ -195,7 +198,7 @@
 }
 
 
-// =-= Float =-=
+/* =-= Float =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     .u-float-right#{$bkpt-label}, .u-flo-rgt#{$bkpt-label} {
@@ -223,7 +226,7 @@
 }
 
 
-// =-= Spacing =-=
+/* =-= Spacing =-= */
 // Refactor for shorter compiled file
 // Negative Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
@@ -259,7 +262,7 @@
   }
 }
 
-// =-= Positive Margin =-=
+// Positive Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     @each $spacing-label, $spacing-size in $spacings {
@@ -299,7 +302,7 @@
   }
 }
 
-// =-= Padding =-=
+// Padding
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     @each $spacing-label, $spacing-size in $spacings {
@@ -331,6 +334,6 @@
 }
 
 
-// =-= Dimension =-=
+/* =-= Dimension =-= */
   // Width, Min-Width, Max-Width; Height, Min-Height, Max-Height
     // em, px, vw, vh, %
