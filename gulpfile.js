@@ -2,7 +2,7 @@
 
 // Imports
 const autoprefixer = require('autoprefixer');
-// const cssnano = require('cssnano');
+const cssnano = require('cssnano');
 const del = require('del');
 const gulp = require('gulp');
 const gulpPostcss = require('gulp-postcss');

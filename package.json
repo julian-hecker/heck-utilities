@@ -18,9 +18,11 @@
   "homepage": "https://github.com/julian-hecker/heck-utilities#readme",
   "devDependencies": {
     "autoprefixer": "^9.5.1",
+    "cssnano": "^4.1.10",
     "del": "^4.1.0",
     "gulp": "^4.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.11.0"
   }
