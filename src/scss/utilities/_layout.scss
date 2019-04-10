@@ -27,19 +27,39 @@
   }
 }
 
-@for $i from 1 to length($breakpoints) {
-  $bkpt-label: map_get($breakpoints, $i);
-  $next-bkpt-label: map_get($breakpoints, $i + 1);
-  @if $i == 1 {
-    @media (max-width: nth($breakpoints, $i + 1)) {
-      .u-display-none#{ map_get($breakpoints, $i) },
-      .u-dsp-none#{ map_get($breakpoints, $i) },
-      .u-hide#{ map_get($breakpoints, $i) } {
-        display: none;
+// Refactor: add selectors and display:none to a mixin, and getting values from $breakpoints
+@for $i from 1 through length($breakpoints) {
+  $bkpt-label: nth(nth($breakpoints, $i), 1);
+  $bkpt-value: nth(nth($breakpoints, $i), 2);
+  $bkpt-next-value: nth(nth($breakpoints, $i), 2);
+  @if $i < length($breakpoints) {
+    $bkpt-next-value: nth(nth($breakpoints, $i + 1), 2) - .1px;
+  }
+    @if $i == 1 {
+    @media (max-width: $bkpt-next-value) {
+      .u-display-none#{$bkpt-label},
+      .u-dsp-none#{$bkpt-label},
+      .u-hide#{$bkpt-label} {
+        display: none !important;
+      }
+    }
+  } @else if $i == length($breakpoints) {
+    @media (min-width: $bkpt-value) {
+      .u-display-none#{$bkpt-label},
+      .u-dsp-none#{$bkpt-label},
+      .u-hide#{$bkpt-label} {
+        display: none !important;
+      }
+    }
+  } @else {
+    @media (min-width: $bkpt-value) and (max-width: $bkpt-next-value) {
+      .u-display-none#{$bkpt-label},
+      .u-dsp-none#{$bkpt-label},
+      .u-hide#{$bkpt-label} {
+        display: none !important;
       }
     }
   }
-//  @elseif $i 
 }
 
 // .u-display-none#{$bkpt-label}, .u-dsp-none#{$bkpt-label} {
