@@ -27,7 +27,7 @@
   }
 }
 
-// Refactor: add selectors and display:none to a mixin, and getting values from $breakpoints
+// Refactor: add selectors and display:none to a mixin; move to bottom of source?
 @for $i from 1 through length($breakpoints) {
   $bkpt-label: nth(nth($breakpoints, $i), 1);
   $bkpt-value: nth(nth($breakpoints, $i), 2);
@@ -38,36 +38,26 @@
     @if $i == 1 {
     @media (max-width: $bkpt-next-value) {
       .u-display-none#{$bkpt-label},
-      .u-dsp-none#{$bkpt-label},
-      .u-hide#{$bkpt-label} {
-        display: none !important;
+      .u-dsp-none#{$bkpt-label} {
+        display: none;
       }
     }
   } @else if $i == length($breakpoints) {
     @media (min-width: $bkpt-value) {
       .u-display-none#{$bkpt-label},
-      .u-dsp-none#{$bkpt-label},
-      .u-hide#{$bkpt-label} {
-        display: none !important;
+      .u-dsp-none#{$bkpt-label} {
+        display: none;
       }
     }
   } @else {
     @media (min-width: $bkpt-value) and (max-width: $bkpt-next-value) {
       .u-display-none#{$bkpt-label},
-      .u-dsp-none#{$bkpt-label},
-      .u-hide#{$bkpt-label} {
-        display: none !important;
+      .u-dsp-none#{$bkpt-label} {
+        display: none;
       }
     }
   }
 }
-
-// .u-display-none#{$bkpt-label}, .u-dsp-none#{$bkpt-label} {
-//   display: none !important;
-//   // This is quite buggy! Use with caution!
-//   // Perhaps give it limited range? disappear only at a specific point?
-// }
-
 
 
 /* =-= Flex =-= */
@@ -216,7 +206,7 @@
     }
   }
 }
-
+// Top, right, bottom, left
 
 /* =-= Float =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
@@ -248,6 +238,7 @@
 
 /* =-= Spacing =-= */
 // Refactor for shorter compiled file
+// Refactor such that properties become more specific as going down, rather than by size
 // Negative Margin
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
