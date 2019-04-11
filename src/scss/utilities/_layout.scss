@@ -15,13 +15,16 @@
 /* =-= Display =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
-    .u-display-block#{$bkpt-label}, .u-dsp-blc#{$bkpt-label} {
+    .#{$namespace}display-block#{$bkpt-label},
+    .#{$namespace}dsp-blc#{$bkpt-label} {
       display: block;
     }
-    .u-display-inline-block#{$bkpt-label}, .u-dsp-ilb#{$bkpt-label} {
+    .#{$namespace}display-inline-block#{$bkpt-label},
+    .#{$namespace}dsp-ilb#{$bkpt-label} {
       display: inline-block;
     }
-    .u-display-inline#{$bkpt-label}, .u-dsp-inl#{$bkpt-label} {
+    .#{$namespace}display-inline#{$bkpt-label},
+    .#{$namespace}dsp-inl#{$bkpt-label} {
       display: inline;
     }
   }
@@ -37,22 +40,22 @@
   }
   @if $i == 1 {
     @media (max-width: $bkpt-next-value) {
-      .u-display-none#{$bkpt-label},
-      .u-dsp-none#{$bkpt-label} {
+      .#{$namespace}display-none#{$bkpt-label},
+      .#{$namespace}dsp-none#{$bkpt-label} {
         display: none;
       }
     }
   } @else if $i == length($breakpoints) {
     @media (min-width: $bkpt-value) {
-      .u-display-none#{$bkpt-label},
-      .u-dsp-none#{$bkpt-label} {
+      .#{$namespace}display-none#{$bkpt-label},
+      .#{$namespace}dsp-none#{$bkpt-label} {
         display: none;
       }
     }
   } @else {
     @media (min-width: $bkpt-value) and (max-width: $bkpt-next-value) {
-      .u-display-none#{$bkpt-label},
-      .u-dsp-none#{$bkpt-label} {
+      .#{$namespace}display-none#{$bkpt-label},
+      .#{$namespace}dsp-none#{$bkpt-label} {
         display: none;
       }
     }
@@ -64,122 +67,149 @@
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
-    .u-flex-direction-row#{$bkpt-label}, .u-flex-row#{$bkpt-label} {
+    .#{$namespace}flex-direction-row#{$bkpt-label},
+    .#{$namespace}flex-row#{$bkpt-label} {
       display: flex;
       flex-direction: row;
-      &.u-reverse {
+      &.#{$namespace}reverse {
         flex-direction: row-reverse;
       }
     }
-    .u-flex-direction-column#{$bkpt-label}, .u-flex-col#{$bkpt-label} {
+    .#{$namespace}flex-direction-column#{$bkpt-label},
+    .#{$namespace}flex-col#{$bkpt-label} {
       display: flex;
       flex-direction: column;
-      &.u-reverse {
+      &.#{$namespace}reverse {
         flex-direction: column-reverse;
       }
     }
-    .u-flex-wrap#{$bkpt-label} {
+    .#{$namespace}flex-wrap#{$bkpt-label} {
       flex-wrap: wrap;
-      &.u-reverse {
+      &.#{$namespace}reverse {
         flex-wrap: wrap-reverse;
       }
     }
-    .u-flex-nowrap#{$bkpt-label} {
+    .#{$namespace}flex-nowrap#{$bkpt-label} {
       flex-wrap: nowrap;
     }
     @for $i from -5 through 5 { //opinionable
       @if $i < 0 {
-        .u-order-n#{-1 * $i}#{$bkpt-label} {
+        .#{$namespace}order-n#{-1 * $i}#{$bkpt-label} {
           order: $i;
         }
       }
       @else {
-        .u-order#{$i}#{$bkpt-label} {
+        .#{$namespace}order#{$i}#{$bkpt-label} {
           order: $i;
         }
       }
     }
-    .u-order-first#{$bkpt-label}, .u-ord-frst#{$bkpt-label} {
+    .#{$namespace}order-first#{$bkpt-label},
+    .#{$namespace}ord-frst#{$bkpt-label} {
       order: -999;
     }
-    .u-order-last#{$bkpt-label}, .u-ord-last#{$bkpt-label} {
+    .#{$namespace}order-last#{$bkpt-label},
+    .#{$namespace}ord-last#{$bkpt-label} {
       order: 999;
     }
     
     // Refactor next parts using lists, loops, and conditionals
     
-    .u-justify-start#{$bkpt-label}, .u-jstf-sta#{$bkpt-label} {
+    .#{$namespace}justify-start#{$bkpt-label},
+    .#{$namespace}jstf-sta#{$bkpt-label} {
       justify-content: flex-start;
     }
-    .u-justify-end#{$bkpt-label}, .u-jstf-end#{$bkpt-label} {
+    .#{$namespace}justify-end#{$bkpt-label},
+    .#{$namespace}jstf-end#{$bkpt-label} {
       justify-content: flex-end;
     }
-    .u-justify-center#{$bkpt-label}, .u-jstf-cnt#{$bkpt-label} {
+    .#{$namespace}justify-center#{$bkpt-label},
+    .#{$namespace}jstf-cnt#{$bkpt-label} {
       justify-content: center;
     }
-    .u-justify-between#{$bkpt-label}, .u-jst-btw#{$bkpt-label} {
+    .#{$namespace}justify-between#{$bkpt-label},
+    .#{$namespace}jst-btw#{$bkpt-label} {
       justify-content: space-between;
     }
-    .u-justify-around#{$bkpt-label}, .u-jstf-arn#{$bkpt-label} {
+    .#{$namespace}justify-around#{$bkpt-label},
+    .#{$namespace}jstf-arn#{$bkpt-label} {
       justify-content: space-around;
     }
-    .u-justify-evenly#{$bkpt-label}, .u-jstf-evn#{$bkpt-label} {
+    .#{$namespace}justify-evenly#{$bkpt-label},
+    .#{$namespace}jstf-evn#{$bkpt-label} {
       justify-content: space-around;
       justify-content: space-evenly;
     }
     
-    .u-align-content-stretch#{$bkpt-label}, .u-cont-str#{$bkpt-label} {
+    .#{$namespace}align-content-stretch#{$bkpt-label},
+    .#{$namespace}cont-str#{$bkpt-label} {
       align-content: stretch;
     }
-    .u-align-content-start#{$bkpt-label}, .u-cont-sta#{$bkpt-label} {
+    .#{$namespace}align-content-start#{$bkpt-label},
+    .#{$namespace}cont-sta#{$bkpt-label} {
       align-content: flex-start;
     }
-    .u-align-content-end#{$bkpt-label}, .u-cont-end#{$bkpt-label} {
+    .#{$namespace}align-content-end#{$bkpt-label},
+    .#{$namespace}cont-end#{$bkpt-label} {
       align-content: flex-end;
     }
-    .u-align-content-center#{$bkpt-label}, .u-cont-cnt#{$bkpt-label} {
+    .#{$namespace}align-content-center#{$bkpt-label},
+    .#{$namespace}cont-cnt#{$bkpt-label} {
       align-content: center;
     }
-    .u-align-content-between#{$bkpt-label}, .u-cont-btw#{$bkpt-label} {
+    .#{$namespace}align-content-between#{$bkpt-label},
+    .#{$namespace}cont-btw#{$bkpt-label} {
       align-content: space-between;
     }
-    .u-align-content-around#{$bkpt-label}, .u-cont-arn#{$bkpt-label} {
+    .#{$namespace}align-content-around#{$bkpt-label},
+    .#{$namespace}cont-arn#{$bkpt-label} {
       align-content: space-around;
     }
-    .u-align-content-evenly#{$bkpt-label}, .u-cont-evn#{$bkpt-label} {
+    .#{$namespace}align-content-evenly#{$bkpt-label},
+    .#{$namespace}cont-evn#{$bkpt-label} {
       align-content: space-around;
       align-content: space-evenly;
     }
     
-    .u-align-items-stretch#{$bkpt-label}, .u-itms-str#{$bkpt-label} {
+    .#{$namespace}align-items-stretch#{$bkpt-label},
+    .#{$namespace}itms-str#{$bkpt-label} {
       align-items: stretch;
     }
-    .u-align-items-start#{$bkpt-label}, .u-itms-sta#{$bkpt-label} {
+    .#{$namespace}align-items-start#{$bkpt-label},
+    .#{$namespace}itms-sta#{$bkpt-label} {
       align-items: flex-start;
     }
-    .u-align-items-end#{$bkpt-label}, .u-itms-end#{$bkpt-label} {
+    .#{$namespace}align-items-end#{$bkpt-label},
+    .#{$namespace}itms-end#{$bkpt-label} {
       align-items: flex-end;
     }
-    .u-align-items-center#{$bkpt-label}, .u-itms-cnt#{$bkpt-label} {
+    .#{$namespace}align-items-center#{$bkpt-label},
+    .#{$namespace}itms-cnt#{$bkpt-label} {
       align-items: center;
     }
-    .u-align-items-baseline#{$bkpt-label}, .u-itms-bsl#{$bkpt-label} {
+    .#{$namespace}align-items-baseline#{$bkpt-label},
+    .#{$namespace}itms-bsl#{$bkpt-label} {
       align-items: baseline;
     }
     
-    .u-align-self-stretch#{$bkpt-label}, .u-self-str#{$bkpt-label} {
+    .#{$namespace}align-self-stretch#{$bkpt-label},
+    .#{$namespace}self-str#{$bkpt-label} {
       align-self: stretch;
     }
-    .u-align-self-start#{$bkpt-label}, .u-self-sta#{$bkpt-label} {
+    .#{$namespace}align-self-start#{$bkpt-label},
+    .#{$namespace}self-sta#{$bkpt-label} {
       align-self: flex-start;
     }
-    .u-align-self-end#{$bkpt-label}, .u-self-end#{$bkpt-label} {
+    .#{$namespace}align-self-end#{$bkpt-label},
+    .#{$namespace}self-end#{$bkpt-label} {
       align-self: flex-end;
     }
-    .u-align-self-center#{$bkpt-label}, .u-self-cnt#{$bkpt-label} {
+    .#{$namespace}align-self-center#{$bkpt-label},
+    .#{$namespace}self-cnt#{$bkpt-label} {
       align-self: center;
     }
-    .u-align-self-baseline#{$bkpt-label}, .u-self-bsl#{$bkpt-label} {
+    .#{$namespace}align-self-baseline#{$bkpt-label},
+    .#{$namespace}self-bsl#{$bkpt-label} {
       align-self: baseline;
     }
   }
@@ -192,16 +222,20 @@
 /* =-= Position =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
-    .u-position-static#{$bkpt-label}, .u-pos-sta#{$bkpt-label} {
+    .#{$namespace}position-static#{$bkpt-label},
+    .#{$namespace}pos-sta#{$bkpt-label} {
       position: static;
     }
-    .u-position-relative#{$bkpt-label}, .u-pos-rel#{$bkpt-label} {
+    .#{$namespace}position-relative#{$bkpt-label},
+    .#{$namespace}pos-rel#{$bkpt-label} {
       position: relative;
     }
-    .u-position-absolute#{$bkpt-label}, .u-pos-abs#{$bkpt-label} {
+    .#{$namespace}position-absolute#{$bkpt-label},
+    .#{$namespace}pos-abs#{$bkpt-label} {
       position: absolute;
     }
-    .u-position-fixed#{$bkpt-label}, .u-pos-fix#{$bkpt-label} {
+    .#{$namespace}position-fixed#{$bkpt-label},
+    .#{$namespace}pos-fix#{$bkpt-label} {
       position: fixed;
     }
   }
@@ -211,25 +245,30 @@
 /* =-= Float =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
-    .u-float-right#{$bkpt-label}, .u-flo-rgt#{$bkpt-label} {
+    .#{$namespace}float-right#{$bkpt-label},
+    .#{$namespace}flo-rgt#{$bkpt-label} {
       float: right;
     }
-    .u-float-left#{$bkpt-label}, .u-flo-lft#{$bkpt-label} {
+    .#{$namespace}float-left#{$bkpt-label},
+    .#{$namespace}flo-lft#{$bkpt-label} {
       float: left;
     }
-    .u-clear-both#{$bkpt-label}, .u-clr-bth#{$bkpt-label} {
+    .#{$namespace}clear-both#{$bkpt-label},
+    .#{$namespace}clr-bth#{$bkpt-label} {
       clear: both;
     }
-    .u-clear-right#{$bkpt-label}, .u-clr-rgt#{$bkpt-label} {
+    .#{$namespace}clear-right#{$bkpt-label},
+    .#{$namespace}clr-rgt#{$bkpt-label} {
       clear: right;
     }
-    .u-clear-left#{$bkpt-label}, .u-clr-lft#{$bkpt-label} {
+    .#{$namespace}clear-left#{$bkpt-label},
+    .#{$namespace}clr-lft#{$bkpt-label} {
       clear: left;
     }
   }
 }
 
-.u-clearfix::after {
+.#{$namespace}clearfix::after {
   display: block;
   clear: both;
   content: "";
@@ -245,27 +284,27 @@
     @each $spacing-label, $spacing-size in $spacings {
       $spacing-size: $spacing-size * -1;
       @if $spacing-size != 0 {
-        .u-mn#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}mn#{$spacing-label}#{$bkpt-label} {
           margin: $spacing-size;
         }
-        .u-myn#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}myn#{$spacing-label}#{$bkpt-label} {
           margin-top: $spacing-size;
           margin-bottom: $spacing-size;
         }
-        .u-mxn#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}mxn#{$spacing-label}#{$bkpt-label} {
           margin-right: $spacing-size;
           margin-left: $spacing-size;
         }
-        .u-mtn#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}mtn#{$spacing-label}#{$bkpt-label} {
           margin-top: $spacing-size;
         }
-        .u-mrn#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}mrn#{$spacing-label}#{$bkpt-label} {
           margin-right: $spacing-size;
         }
-        .u-mbn#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}mbn#{$spacing-label}#{$bkpt-label} {
           margin-bottom: $spacing-size;
         }
-        .u-mln#{$spacing-label}#{$bkpt-label} {
+        .#{$namespace}mln#{$spacing-label}#{$bkpt-label} {
           margin-left: $spacing-size;
         }
       }
@@ -277,37 +316,37 @@
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     @each $spacing-label, $spacing-size in $spacings {
-      .u-m#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}m#{$spacing-label}#{$bkpt-label} {
         margin: $spacing-size;
       }
-      .u-my#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}my#{$spacing-label}#{$bkpt-label} {
         margin-top: $spacing-size;
         margin-bottom: $spacing-size;
       }
-      .u-mx#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}mx#{$spacing-label}#{$bkpt-label} {
         margin-right: $spacing-size;
         margin-left: $spacing-size;
       }
-      .u-mt#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}mt#{$spacing-label}#{$bkpt-label} {
         margin-top: $spacing-size;
       }
-      .u-mr#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}mr#{$spacing-label}#{$bkpt-label} {
         margin-right: $spacing-size;
       }
-      .u-mb#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}mb#{$spacing-label}#{$bkpt-label} {
         margin-bottom: $spacing-size;
       }
-      .u-ml#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}ml#{$spacing-label}#{$bkpt-label} {
         margin-left: $spacing-size;
       }
     }
-    .u-ma#{$bkpt-label} {
+    .#{$namespace}ma#{$bkpt-label} {
       margin: auto;
     }
-    .u-mra#{$bkpt-label} {
+    .#{$namespace}mra#{$bkpt-label} {
       margin-right: auto;
     }
-    .u-mla#{$bkpt-label} {
+    .#{$namespace}mla#{$bkpt-label} {
       margin-left: auto;
     }
   }
@@ -317,27 +356,27 @@
 @each $bkpt-label, $bkpt-width in $breakpoints {
   @media (min-width: $bkpt-width) {
     @each $spacing-label, $spacing-size in $spacings {
-      .u-p#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}p#{$spacing-label}#{$bkpt-label} {
         padding: $spacing-size;
       }
-      .u-py#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}py#{$spacing-label}#{$bkpt-label} {
         padding-top: $spacing-size;
         padding-bottom: $spacing-size;
       }
-      .u-px#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}px#{$spacing-label}#{$bkpt-label} {
         padding-right: $spacing-size;
         padding-left: $spacing-size;
       }
-      .u-pt#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}pt#{$spacing-label}#{$bkpt-label} {
         padding-top: $spacing-size;
       }
-      .u-pr#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}pr#{$spacing-label}#{$bkpt-label} {
         padding-right: $spacing-size;
       }
-      .u-pb#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}pb#{$spacing-label}#{$bkpt-label} {
         padding-bottom: $spacing-size;
       }
-      .u-pl#{$spacing-label}#{$bkpt-label} {
+      .#{$namespace}pl#{$spacing-label}#{$bkpt-label} {
         padding-left: $spacing-size;
       }
     }
