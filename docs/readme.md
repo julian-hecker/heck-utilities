@@ -18,7 +18,7 @@ Heck Utilities is a CSS Utility library. It was created with the goal of acceler
   - Text Format
 
 ## Using Heck Utilities
-One of the goals of Heck Utilities is to be totally easy to integrate. For that reason, properties in the library have low specificity and no `!important` tags, so as to allow for code to be overwritten. To integrate, simply `\<link\>` in your HTML document's `\<head\>`, and use the available classes in your HTML! Style away!
+One of the goals of Heck Utilities is to be totally easy to integrate. For that reason, properties in the library have low specificity and no `!important` tags, so as to allow for code to be overwritten. To integrate, simply `<link>` in your HTML document's `<head>`, and use the available classes in your HTML! Style away!
 
 ## File Architecture
 Heck Utilities' file architecture system takes inspiration from works such as Jonathan Snook's SMACSS and Harry Roberts' ITCSS. It is meant to prevent 'specificity wars' as well as keeping each selector organized.
