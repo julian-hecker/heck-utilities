@@ -26,9 +26,8 @@ heck-utilities.scss
 ### Settings
 All configuration files go here. These are totally customizable, including breakpoints, colors, fonts, and spacing sizes.
 These files do not directly generate CSS on their own.
-### Tools
-SCSS tools such as mixins and functions can go here. Feel free to add your own!
+
 ### Utilities
-Using `Settings` and `Tools`, Heck Utilities generates a customized utility library with all responsive classes. Pretty neat!
+Using data from `Settings`, Heck Utilities generates a customized utility library with all responsive classes. Pretty neat!
 
 [Back to Documentation](./readme.md)
