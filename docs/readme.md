@@ -25,7 +25,8 @@ where <code>*value*</code> is
 - `block`,
 - `inline-block`,
 - `inline`, or
-- `none`.
+- `none`,
+
 or where <code>*val*</code> (abbreviated) is
 - `blc`,
 - `ilb`,
