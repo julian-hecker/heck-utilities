@@ -20,13 +20,13 @@ All utilities are, by default, prefixed with `.u-` (this can be changed in `sett
 #### Display
 One of the most essential utilities, display lets you choose if an element displays as a block, inline-block, inline, or whether it even displays at all. 
 ##### Syntax: 
-<pre>.u-display-*value*</pre> or <pre>.u-dsp-*val*</pre>
-where <pre>*value*</pre> is 
+<code>.u-display-*value*</code> or <code>.u-dsp-*val*</code>
+where <code>*value*</code> is 
 - `block`,
 - `inline-block`,
 - `inline`, or
 - `none`.
-or where <pre>*val*</pre> (abbreviated) is
+or where <code>*val*</code> (abbreviated) is
 - `blc`,
 - `ilb`,
 - `inl`, or
