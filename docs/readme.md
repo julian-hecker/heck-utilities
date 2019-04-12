@@ -13,14 +13,14 @@ One of the goals of Heck Utilities is to be totally easy to integrate. For that 
 ## Classes
 Now we're talking! This section has documentation for all the utility classes included in the library.
 
-All utilities are, by default, prefixed with `.u-` (this can be changed in `settings/_config.scss`), a namespace that may prevent conflict with user classes.
+All utilities are, by default, prefixed with `.hu-` (this can be changed in `settings/_config.scss`), a namespace that may prevent conflict with user classes.
 
 ### -Layout-
 
 #### Display
 One of the most essential utilities, display lets you choose if an element displays as a block, inline-block, inline, or whether it even displays at all. 
 ##### Syntax: 
-<code>.u-display-*value*</code> or <code>.u-dsp-*val*</code>
+<code>.hu-display-*value*</code> or <code>.hu-dsp-*val*</code>
 where <code>*value*</code> is 
 - `block`,
 - `inline-block`,

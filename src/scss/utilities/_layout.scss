@@ -1,16 +1,10 @@
-// -Layout-
-// Display  //
-//   Flex   //
-//   Grid
-// Position //
-// Float    //
-// Spacing  //
-//   Margin //
-//   Padding//
-// Dimension
-//   width
-//   height
-
+// TODO:
+// Grid
+// Dimensions: Height & Width
+// Position: Top, Right, Bottom, Left
+// Refactor Spacing
+// Move display: hidden to bottom
+// Split into multiple files
 
 /* =-= Display =-= */
 @each $bkpt-label, $bkpt-width in $breakpoints {
